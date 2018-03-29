@@ -1,2 +1,5 @@
 Flask==0.10.1
+Flask-SQLAlchemy
 gunicorn==18.0
+sqlalchemy
+alembic

@@ -13,9 +13,23 @@ fileConfig(config.config_file_name)
 
 # add your model's MetaData object here
 # for 'autogenerate' support
-# from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
-target_metadata = None
+from sqlalchemy import engine_from_config, pool, MetaData
+
+# add the model path to sys.path
+import sys
+import os
+
+current_path = os.path.dirname(os.path.abspath(__file__))
+ROOT_PATH = os.path.join(current_path, '..')
+sys.path.append(ROOT_PATH)
+
+from evi.model import Base
+
+target_metadata = Base.metadata
+
+#from myapp.model import mymodel
+#target_metadata = mymodel.Base.metadata
+# target_metadata = None
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

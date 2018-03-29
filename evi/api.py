@@ -1,9 +1,7 @@
-import os
 from flask import request
 
 from evi import app, db
-from model.plan import Plan, Env
-from model.instance import Instance
+from model import Plan, Env, Instance
 import json
 
 @app.route("/resources/plans", methods=["GET"])
